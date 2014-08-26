@@ -1,0 +1,170 @@
+ <!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<mime-info>
+
+	<!-- add mimetypes here -->
+
+	<mime-type type="application/x-ntf">
+		<_comment>GB/NI Ordnance Survey NTF</_comment>
+		<magic priority="50">
+			<match value="01ORDNANCE SURVEY" type="string" offset="0" />
+			<match value="01OSNI" type="string" offset="0" />
+		</magic>
+		<sub-class-of type="image/nitf" />
+		<!-- <glob pattern="*.ntf" /> -->
+	</mime-type>
+
+	<!-- http://en.wikipedia.org/wiki/Geography_Markup_Language -->
+	<mime-type type="application/gml+xml">
+		<_comment>Geography Markup Language</_comment>
+		<root-XML localName="gml" />
+		<root-XML localName="gml" namespaceURI="http://www.opengis.net/gml" />
+		<sub-class-of type="application/xml" />
+		<glob pattern="*.gml" />
+	</mime-type>
+
+	<mime-type type="application/x-os-gml+xml">
+		<_comment>GB/NI Ordnance Survey Geography Markup Language</_comment>
+		<root-XML localName="FeatureCollection" />
+		<root-XML localName="FeatureCollection"
+			namespaceURI="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" />
+		<sub-class-of type="application/gml" />
+	</mime-type>
+
+	<!-- http://en.wikipedia.org/wiki/ECW_%28file_format%29 -->
+	<mime-type type="application/x-ecw">
+		<_comment>Enhanced Compressed Wavelet Image</_comment>
+		<magic priority="50">
+			<match value="0x65020102070400" type="string" offset="0" />
+		</magic>
+		<glob pattern="*.ecw" />
+	</mime-type>
+
+	<!-- https://groups.google.com/forum/#!topic/comp.databases.ms-access/qwpYy-JB80Y -->
+	<mime-type type="application/x-database-ff2">
+		<_comment>FF2 file</_comment>
+		<magic priority="50">
+			<match value="0x46460248" type="string" offset="0" />
+		</magic>
+		<glob pattern="*.ff2" />
+	</mime-type>
+
+	<!-- http://resource.mapinfo.com/static/files/document/1074660800077/interchange_file.pdf -->
+	<mime-type type="application/x-mapinfo-mif">
+		<_comment>MapInfo Interchange Format (Graphic data)</_comment>
+		<magic priority="60">
+			<match value="Version" type="string" offset="0" />
+		</magic>
+		<sub-class-of type="application/vnd.mif" />
+		<!-- <glob pattern="*.mif" /> -->
+	</mime-type>
+
+	<!-- http://resource.mapinfo.com/static/files/document/1074660800077/interchange_file.pdf -->
+	<mime-type type="application/x-mapinfo-mid">
+		<_comment>MapInfo Interchange Format (Text data)</_comment>
+		<magic priority="60">
+			<match value="0x22" type="string" offset="0" /> <!-- starts with a quote (") -->
+		</magic>
+		<sub-class-of type="audio/midi" />
+		<!-- <glob pattern="*.mid" /> -->
+	</mime-type>
+	
+	<!-- http://en.wikipedia.org/wiki/MapInfo_TAB_format -->
+	<!-- download: http://www.ordnancesurvey.co.uk/business-and-government/help-and-support/products/geo-referencing.html -->
+	<mime-type type="application/x-mapinfo-tab">
+		<_comment>MapInfo TAB format</_comment>
+		<magic priority="50">
+			<match value="!table" type="string" offset="0" />
+		</magic>
+		<glob pattern="*.tab" />
+	</mime-type>
+	
+	<mime-type type="application/x-mapinfo-id">
+		<_comment>MapInfo ID format</_comment>
+		<magic priority="50">
+			<match value="0x00" type="string" offset="3" />
+		</magic>
+		<glob pattern="*.id" />
+	</mime-type>
+	
+	<mime-type type="application/x-mapinfo-map">
+		<_comment>MapInfo MAP format</_comment>
+		<magic priority="50">
+			<match value="0x000a0e15" type="string" offset="0" /> <!-- check!! -->
+		</magic>
+		<glob pattern="*.map" />
+	</mime-type>
+
+	<!-- http://en.wikipedia.org/wiki/DGN -->
+	<mime-type type="application/x-igds-dgn">
+		<_comment>IGDS Design</_comment>
+		<magic priority="50">
+			<match value="0xc809fe02" type="string" offset="0" />
+		</magic>
+		<glob pattern="*.dgn" />
+	</mime-type>
+
+	<!-- download: http://www.ordnancesurvey.co.uk/business-and-government/help-and-support/products/geo-referencing.html -->
+	<mime-type type="application/x-tiffworldfile">
+		<_comment>TIFF World File</_comment>
+<!-- 		<magic priority="50"> -->
+<!-- 			<match value="^[0-9]+." type="regex" offset="0" /> CHECK!! -->
+<!-- 		</magic> -->
+		<glob pattern="*.tfw" />
+	</mime-type>
+
+	<!-- ESRI Shapefiles -->
+	<!-- http://www.clicketyclick.dk/databases/xbase/format/dbf.html#DBF_STRUCT -->
+	<mime-type type="application/x-database-dbf-without-dbt">
+		<_comment>dBase file without DBT</_comment>
+		<magic priority="50">
+			<match value="0x03" type="string" offset="0" /> <!-- version 0x03 -->
+			<match value="0x700b" type="string" offset="1" /> <!-- YYMM of last update -->
+			<!-- <match value="0x1a" type="string" offset="EOF" /> -->
+		</magic>
+		<glob pattern="*.dbf" />
+		<glob pattern="*.dat" />
+	</mime-type>
+
+	<!-- http://www.digitalpreservation.gov/formats/fdd/fdd000291.shtml -->
+	<mime-type type="application/x-esri-arcinfo-exchange">
+		<_comment>ESRI ArcInfo interchange</_comment>
+		<magic priority="50">
+			<match value="EXP" type="string" offset="0" />
+		</magic>
+		<glob pattern="*.e0?" />
+	</mime-type>
+
+	<!-- ESRI Shapefiles -->
+	<mime-type type="application/x-esri-shapefile-prj">
+		<_comment>ESRI Shapefile projection format</_comment>
+		<magic priority="50">
+			<match value="Projection" type="string" offset="0" />
+			<match value="CEOGCS" type="string" offset="0" />
+			<match value="PROJCS" type="string" offset="0" />
+		</magic>
+		<glob pattern="*.prj" />
+		<!-- <sub-class-of type="text/plain" /> -->
+	</mime-type>
+
+	<!-- ESRI Shapefiles --> <!-- CHECK- this is being overridden by shp -->
+	<mime-type type="application/x-esri-shapefile-index">
+		<_comment>ESRI Shapefile shape index format</_comment>
+		<glob pattern="*.shx" />
+		<sub-class-of type="application/x-esri-shapefile-shape" />
+	</mime-type>
+
+	<!-- ESRI Shapefiles -->
+	<mime-type type="application/x-esri-shapefile-shape">
+		<_comment>ESRI Shapefile shape format</_comment>
+		<glob pattern="*.shp" />
+		<magic priority="50">
+			<match value="0x0000270a" type="string" offset="0" />
+		</magic>
+	</mime-type>
+
+	<!-- standard file formats(?): TIF, AI (Adobe Illustrator), PSD, DXF, ISO, 
+		TXT, DBF?, EPS?, MD5, MDB, -->
+
+	<!-- add: IND -->
+
+</mime-info>
